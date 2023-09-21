@@ -1,5 +1,9 @@
 #!/usr/bin/env node
 
+const db = require('../db/db.js')
+db( () => {
+
+
 /**
  * Module dependencies.
  */
@@ -13,6 +17,7 @@ var http = require('http');
  */
 
 var port = normalizePort(process.env.PORT || '3000');
+
 app.set('port', port);
 
 /**
@@ -88,3 +93,6 @@ function onListening() {
     : 'port ' + addr.port;
   debug('Listening on ' + bind);
 }
+}, () => {
+  
+})
